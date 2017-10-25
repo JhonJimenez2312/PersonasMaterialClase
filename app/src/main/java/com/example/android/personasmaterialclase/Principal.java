@@ -1,5 +1,6 @@
 package com.example.android.personasmaterialclase;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -30,35 +31,17 @@ public class Principal extends AppCompatActivity {
 
         listado = (RecyclerView)findViewById(R.id.lstPersonas);
         res= this.getResources();
-        personas = new ArrayList<>();
-        personas.add(new Persona(R.drawable.images3,"1145432156","roberto","morales",2));
-        personas.add(new Persona(R.drawable.images2,"1145432157","carlos","morales",2));
-        personas.add(new Persona(R.drawable.images,"1145432158","maria","perez",2));
-        personas.add(new Persona(R.drawable.images3,"1145432156","roberto","morales",2));
-        personas.add(new Persona(R.drawable.images2,"1145432157","carlos","morales",2));
-        personas.add(new Persona(R.drawable.images,"1145432158","maria","perez",2));
-        personas.add(new Persona(R.drawable.images3,"1145432156","roberto","morales",2));
-        personas.add(new Persona(R.drawable.images2,"1145432157","carlos","morales",2));
-        personas.add(new Persona(R.drawable.images,"1145432158","maria","perez",2));
+        personas = Datos.obtenerPersonas();
 
         adapter=new AdaptadorPersona(this,personas);
         llm = new LinearLayoutManager(this);
         listado.setLayoutManager(llm);
         listado.setAdapter(adapter);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
-    public void click (View v){
-        Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+    public void agregar (View v){
+     Intent i = new Intent(Principal.this,CrearPersonas.class);
+        startActivity(i);
     }
 
 }

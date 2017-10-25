@@ -13,7 +13,7 @@ public class Datos {
         personas.add(p);
     }
 
-    public static ArrayList<Persona> obtenerPersonas(Persona p){
+    public static ArrayList<Persona> obtenerPersonas(){
         return personas;
     }
 }
